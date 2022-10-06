@@ -1,5 +1,5 @@
 
 public interface Campo {
 	public void pideDato();
-	public String getString();
+	public String getValor();
 }

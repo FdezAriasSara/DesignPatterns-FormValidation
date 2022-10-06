@@ -1,11 +1,11 @@
 import java.io.*;
 
-public class CampoNumero implements Campo {
+public class CampoNumero extends AbstractField{
 
 	private String etiqueta;
 
 	public CampoNumero(String etiqueta) {
-		this.etiqueta = etiqueta;
+		super(etiqueta);
 	}
 
 	public void pideDato() {
@@ -30,7 +30,7 @@ public class CampoNumero implements Campo {
 		} while (!valido);
 	}
 
-	public String getString() {
+	public String getValor() {
 		return texto;
 	}
 

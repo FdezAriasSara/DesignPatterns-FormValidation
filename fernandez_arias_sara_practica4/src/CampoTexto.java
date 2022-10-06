@@ -1,38 +1,30 @@
 import java.io.*;
 
-public class CampoTexto implements Campo {
+public class CampoTexto extends AbstractField {
 
-	private String etiqueta;
+	//private String etiqueta;
 
+	//private String texto;
 	public CampoTexto(String etiqueta) {
-		this.etiqueta = etiqueta;
+		super(etiqueta);
 	}
-
+	@Override
 	public void pideDato() {
-		BufferedReader consola = new BufferedReader(new InputStreamReader(System.in));
+		
 
 		boolean valido;
 		do {
 			valido = true;
-			try {
-				System.out.print(etiqueta + ": ");
-				texto = consola.readLine();
-
-				for (char ch : texto.toCharArray()) {
+				super.pideDato();
+				for (char ch : getValor().toCharArray()) {
 					if (!Character.isLetter(ch)) {
 						valido = false;
 						break;
 					}
 				}
-			} catch (IOException ex) {
-				System.out.println(ex);
-			}
+			
 		} while (!valido);
 	}
 
-	public String getString() {
-		return texto;
-	}
-
-	private String texto;
+	
 }

@@ -5,10 +5,10 @@ public class Formulario {
 		campos.add(campo);
 	}
 
-	public void PideDatos() {
+	public void pideDatos() {
 		for (Campo campo : campos) {
 			campo.pideDato();
-			System.out.println(campo.getString());
+			System.out.println(campo.getValor());
 		}
 	}
 

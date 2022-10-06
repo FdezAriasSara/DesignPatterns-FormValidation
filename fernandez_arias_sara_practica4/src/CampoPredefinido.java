@@ -1,40 +1,31 @@
 import java.io.*;
 
-public class CampoPredefinido implements Campo {
+public class CampoPredefinido extends AbstractField {
 
 	private String etiqueta;
 	private String[] valores;
 
 	public CampoPredefinido(String etiqueta, String... valores) {
-		this.etiqueta = etiqueta;
+		super(etiqueta);
 		this.valores = valores;
 	}
 
+	@Override
 	public void pideDato() {
-		BufferedReader consola = new BufferedReader(new InputStreamReader(System.in));
 
 		boolean valido;
 		do {
 			valido = false;
-			try {
-				System.out.print(etiqueta + ": ");
-				texto = consola.readLine();
 
-				for (String valor : valores) {
-					if (texto.toLowerCase().equals(valor.toLowerCase())) {
-						valido = true;
-						break;
-					}
+			super.pideDato();
+			for (String valor : valores) {
+				if (getValor().toLowerCase().equals(valor.toLowerCase())) {
+					valido = true;
+					break;
 				}
-			} catch (IOException ex) {
-				System.out.println(ex);
 			}
+
 		} while (!valido);
 	}
 
-	public String getString() {
-		return texto;
-	}
-
-	private String texto;
 }
