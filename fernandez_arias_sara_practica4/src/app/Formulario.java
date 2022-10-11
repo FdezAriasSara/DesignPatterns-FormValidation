@@ -1,4 +1,7 @@
+package app;
 import java.util.*;
+
+import app.field.Campo;
 
 public class Formulario {
 	public void addCampo(Campo campo) {

@@ -1,11 +1,19 @@
+package app.field;
 import java.io.*;
 
-public class CampoNumero extends AbstractField{
+import app.field.validator.Validator;
+
+public class CampoTexto implements Campo {
 
 	private String etiqueta;
+	private Validator validator;
 
-	public CampoNumero(String etiqueta) {
-		super(etiqueta);
+	public CampoTexto(String etiqueta) {
+		this.etiqueta = etiqueta;
+	
+	}
+	public CampoTexto(String etiqueta,Validator validator) {
+		this.validator=validator;
 	}
 
 	public void pideDato() {
@@ -17,13 +25,10 @@ public class CampoNumero extends AbstractField{
 			try {
 				System.out.print(etiqueta + ": ");
 				texto = consola.readLine();
-
-				for (char ch : texto.toCharArray()) {
-					if (!Character.isDigit(ch)) {
-						valido = false;
-						break;
-					}
+				if(validator!=null) {
+					valido=validator.validate(texto);
 				}
+			
 			} catch (IOException ex) {
 				System.out.println(ex);
 			}
