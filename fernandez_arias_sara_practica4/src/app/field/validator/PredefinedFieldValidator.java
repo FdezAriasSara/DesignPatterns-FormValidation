@@ -7,6 +7,9 @@ public class PredefinedFieldValidator implements Validator {
 	public PredefinedFieldValidator(List<String> expected) {
 		this.expected=expected;
 	}
+	public PredefinedFieldValidator(String...strings) {
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public boolean validate(String text) {
 	

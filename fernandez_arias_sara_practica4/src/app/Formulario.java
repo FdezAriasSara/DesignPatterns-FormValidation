@@ -1,19 +1,19 @@
 package app;
 import java.util.*;
 
-import app.field.Campo;
+import app.field.Field;
 
 public class Formulario {
-	public void addCampo(Campo campo) {
-		campos.add(campo);
+	public void addCampo(Field field) {
+		fields.add(field);
 	}
 
 	public void pideDatos() {
-		for (Campo campo : campos) {
-			campo.pideDato();
-			System.out.println(campo.getValor());
+		for (Field field : fields) {
+			field.pideDato();
+			System.out.println(field.getContent());
 		}
 	}
 
-	private List<Campo> campos = new ArrayList<Campo>();
+	private List<Field> fields = new ArrayList<>();
 }
