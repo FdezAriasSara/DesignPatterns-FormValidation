@@ -1,19 +1,19 @@
 package app.field.validator;
 
-import java.util.List;
-
 public class PredefinedFieldValidator implements Validator {
-	private List<String> expected;
-	public PredefinedFieldValidator(List<String> expected) {
-		this.expected=expected;
-	}
+	private String[] expected;
 	public PredefinedFieldValidator(String...strings) {
-		// TODO Auto-generated constructor stub
+	  this.expected=strings;
 	}
 	@Override
 	public boolean validate(String text) {
 	
-		return expected.contains(text);
+		for (String string : expected) {
+			if(string.equals(text)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 }
